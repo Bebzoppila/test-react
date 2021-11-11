@@ -1,0 +1,237 @@
+@import "./normalice.css";
+@import "./fonts/stylesheet.css";
+*
+    font-family: 'Lab Grotesque'
+    box-sizing: border-box
+.btn
+    font-size: 12px
+    font-weight: 500
+    padding: 12px 0px
+    border-radius: 6px
+    outline: none
+    cursor: pointer
+    background-color: transparent
+    transition: all 0.3s
+    &-white
+        width: 150px
+        box-shadow: 0px 0px 10px 0px rgba(207, 218, 231, 0.4)
+        border: 1px solid #fff
+        color: #fff
+    &-red
+        width: 100%
+        box-shadow: 0px 0px 24px rgba(234, 0, 41, 0.33)
+        background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56
+        border: 0px 
+        color: #fff
+        &:hover
+            background: #EA0029
+        &:disabled
+            background: #BEC5CC
+            box-shadow: none
+img
+    display: block
+    max-width: 100%
+.main
+    background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%),linear-gradient(0deg, #FF5E56, #FF5E56)
+    &__inner
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 100vw
+        height: 100vh
+    &--modal
+        background: transparent
+.modal
+    position: fixed 
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 1
+    display: none
+    &--open
+        display: flex
+    &__text
+        font-size: 12px
+        line-height: 16px
+        font-weight: 400
+        color: rgba(128, 128, 128, 1)
+    &__close
+        position: absolute
+        top: 20px
+        right: 20px
+        background-color: transparent
+        border: none
+        font-size: 21px
+        color: #DC3131
+        cursor: pointer
+        z-index: 1
+    &__title
+        font-size: 18px
+        line-height: 24px
+        font-weight: 500
+    &__content
+        padding: 16px
+        height: 100%
+        display: flex
+        flex-direction: column
+        background-color: #fff
+    &__form
+        margin-top: 24px
+        flex: 1 1 auto
+.form
+    display: flex
+    flex-direction: column
+    &-checbox
+        flex: 1 1 auto
+        &__label
+            padding: 6px 12px
+            font-size: 14px
+            line-height: 24px
+            color: #000
+            cursor: pointer
+        &__item
+            background: #EEF0F2
+            margin: 0 4px
+            border-radius: 30px
+            &:hover
+                background-color: rgba(223, 227, 230, 1)
+        &__content
+            margin: 0 -4px
+            display: flex
+            align-items: center
+        &__input 
+            display: none
+            &:checked ~ .form-checbox__label
+                background:  linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), linear-gradient(0deg, #FF5E56, #FF5E56)
+                color: #fff
+                border-radius: 30px
+    &-calc
+        &__content
+            max-height: 0px
+            overflow: hidden
+            transition: all 0.35s
+            &--active
+                max-height: 600px
+                overflow-y: auto
+        &__item
+            border-bottom: 1px solid rgba(223, 227, 230, 1)
+            padding-bottom: 16px
+            margin-top: 16px
+        &__checkbox
+            display: none
+            &:checked ~ .form-calc__label:before
+                background-color: #EA0029
+                border: none
+        &__label
+            padding-left: 35px
+            position: relative
+            cursor: pointer
+            transition:  all 0.2s
+            &::before
+                content: ""
+                position: absolute
+                top: 50%
+                left: 0
+                width: 20px
+                height: 20px
+                border: 1px solid rgba(223, 227, 230, 1)
+                transform: translateY(-50%)
+                border-radius: 7px
+                transition:  all 0.2s
+            &::after
+                content: ""
+                position: absolute
+                top: 50%
+                left: 0
+                transform: translateY(-50%)
+                background: url('../images/check.svg') center no-repeat
+                width: 20px
+                height: 20px
+                z-index: 2
+            &:hover::before
+                border: 1px solid #000000
+        &__btn
+            margin-top: 8px
+            background-color: transparent
+            border: none
+            color: #EA0029
+            cursor: pointer
+            transition: all 0.2s
+            padding: 0px
+            &:hover
+                color: #F53A31
+            &:active
+                color: #EA0029
+        &__title
+            font-size: 14px
+            line-height: 24px
+            max-width: 155px
+            margin-bottom: 0px
+    &__item
+        &-title
+            font-size: 14px
+            line-height: 24px
+            font-weight: 500
+            margin-bottom: 8px
+        &-error
+            font-size: 12px
+            font-weight: 400
+            margin-top: 4px
+            color: rgba(234, 0, 41, 1)
+        &-input
+            width: 100%
+            font-size: 14px
+            padding: 8px 10px
+            outline: none
+            border: 1px solid rgba(223, 227, 230, 1)
+            transition: all 0.2s
+            border-radius: 5px
+            &:hover
+                border: 1px solid rgba(0, 0, 0, 1)
+            &:focus
+                border: 1px solid rgba(223, 227, 230, 1)
+            &::placeholder
+                color: rgba(190, 197, 204, 1)
+            &:disabled
+                border: 1px solid rgba(128, 128, 128, 1)
+        &-input--error
+            border: 1px solid rgba(234, 0, 41, 1)
+@media screen and (min-width: 554px)
+    .modal__content
+        max-width: 453px
+        position: relative
+        margin: 0 auto
+        border-radius: 20px
+        height: auto
+    .modal
+        &--open
+            display: flex
+            align-items: center
+            justify-content: center
+            background: rgba(0, 0, 0, 0.3)
+            z-index: 2
+    .form__btn
+        margin-top: 40px
+@media screen and (min-width: 760px)
+    .modal__title
+        font-size: 28px
+        margin-bottom: 16px
+    .modal__text
+        margin-top: 0px
+        font-size: 14px
+        margin-bottom: 24px
+    .modal__form
+        margin-top: 0px
+    .form__item-title
+        font-size: 14px
+    .form-checbox
+        display: flex
+        margin: 20px -16px 0px
+    .form-checbox__title
+        margin: 0 16px
+    .form-checbox__content
+        margin: 0 16px
+    .btn
+        font-size: 16px
+
